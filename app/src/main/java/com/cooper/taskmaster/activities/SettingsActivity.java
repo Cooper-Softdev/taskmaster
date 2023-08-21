@@ -8,29 +8,24 @@ import android.widget.EditText;
 import android.widget.Toast;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.preference.PreferenceManager;
+
 import com.cooper.taskmaster.R;
 
 public class SettingsActivity extends AppCompatActivity {
-
     public static final String USERNAME_TAG = "username";
     SharedPreferences preferences;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_settings);
-
         preferences = PreferenceManager.getDefaultSharedPreferences(this);
-
         setupUserNameEditText();
         setupSaveButton();
     }
-
     public void setupUserNameEditText() {
         String username = preferences.getString(USERNAME_TAG, "");
         ((EditText) findViewById(R.id.SettingsUsernameInputForm)).setText(username);
     }
-
     public void setupSaveButton() {
         Button saveButton = findViewById(R.id.SettingsAddButton);
         saveButton.setOnClickListener(v -> {
@@ -43,9 +38,9 @@ public class SettingsActivity extends AppCompatActivity {
             preferenceEditor.apply();
 
             Log.d("SettingsActivity", "Save button clicked");
-            Log.d("SettingsActivity", "Username saved: " + usernameString);
+            Log.d("SettingsActivity", "Username is saved: " + usernameString);
 
-            Toast.makeText(getApplicationContext(), "Settings saved!", Toast.LENGTH_SHORT).show();
+            Toast.makeText(getApplicationContext(), "Settings saved", Toast.LENGTH_SHORT).show();
         });
     }
 }

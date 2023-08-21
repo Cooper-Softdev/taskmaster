@@ -11,7 +11,6 @@ import com.cooper.taskmaster.R;
 
 public class TaskDetailActivity extends AppCompatActivity {
 
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

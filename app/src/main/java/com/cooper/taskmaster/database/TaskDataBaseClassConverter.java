@@ -3,9 +3,6 @@ package com.cooper.taskmaster.database;
 import androidx.room.TypeConverter;
 
 import java.util.Date;
-
-
-//For the java.util.Date dateCreated; time stamp
 public class TaskDataBaseClassConverter {
     @TypeConverter
     public static Date fromTimestamp(Long value) {

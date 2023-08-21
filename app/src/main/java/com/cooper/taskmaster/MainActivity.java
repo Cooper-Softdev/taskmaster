@@ -37,7 +37,6 @@ public class MainActivity extends AppCompatActivity {
     TaskRecyclerViewAdapter adapter;
 
 
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -46,7 +45,6 @@ public class MainActivity extends AppCompatActivity {
         preferences = PreferenceManager.getDefaultSharedPreferences(this);
 
         setupDataBase();
-//        setupTaskButtons();
         setupAddTaskPageButton();
         setupAllTasksPageButton();
         setupSettingsPageButton();
@@ -72,7 +70,7 @@ public class MainActivity extends AppCompatActivity {
                         getApplicationContext(),
                         TaskDataBase.class,
                         DATABASE_NAME)
-                        //.fallbackToDestructiveMigration() // If Room gets confused, it tosses your database; turn this off in production!
+                        //.fallbackToDestructiveMigration()
                         .allowMainThreadQueries()
                         .build();
 
@@ -115,22 +113,10 @@ public class MainActivity extends AppCompatActivity {
 
 
         void setupRecyclerView(List<Task> tasks){
-        // TODO: Step 1-2 Grab the recyclerview
         RecyclerView taskRecyclerView = (RecyclerView) findViewById(R.id.MainActivityTaskRecyclerView);
-
-
-        // TODO: Step 1-3 set the layoutmanager for the recycler view to the linear layout
         RecyclerView.LayoutManager taskLayoutManager = new LinearLayoutManager(this);
         taskRecyclerView.setLayoutManager(taskLayoutManager);
-
-        // TODO: step 1-5 create and attack recyclerview.adapter to recycler view
-        // TaskRecyclerViewAdapter adapter = new TaskRecyclerViewAdapter();
-        //TODO: step 2-3 hand data items from main activity to our recyclerview adapter
-        //TaskRecyclerViewAdapter adapter = new TaskRecyclerViewAdapter(taskList, this);
-
-        //TODO step 3-2 hand in activity context to the adapter
-         adapter = new TaskRecyclerViewAdapter(tasks, this);
-
+        adapter = new TaskRecyclerViewAdapter(tasks, this);
         taskRecyclerView.setAdapter(adapter);
     }
 
