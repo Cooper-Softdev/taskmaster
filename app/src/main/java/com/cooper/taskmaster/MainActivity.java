@@ -46,12 +46,15 @@ public class MainActivity extends AppCompatActivity {
         preferences = PreferenceManager.getDefaultSharedPreferences(this);
 
         setupDataBase();
-//        setupTaskButtons();
+        setupTaskButtons();
         setupAddTaskPageButton();
         setupAllTasksPageButton();
         setupSettingsPageButton();
         setupRecyclerView(tasks);
 
+    }
+
+    private void setupTaskButtons() {
     }
 
     @Override
@@ -144,7 +147,5 @@ public class MainActivity extends AppCompatActivity {
             ((TextView) findViewById(R.id.usernameTasksTextView)).setText(myTasksTitleTextView);
         }
     }
-
-
 }
 
